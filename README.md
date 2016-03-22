@@ -1,6 +1,6 @@
 # airvideoserverhd
 
-AirServerHD in Docker container
+AirVideo Server HD in Docker container
 
 
 # Build
