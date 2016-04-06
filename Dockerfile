@@ -19,10 +19,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ADD Server.properties /opt/Server.properties
+ADD run.sh /run.sh
 EXPOSE 45633 45601
 
 VOLUME ["/Movies", "/var/run/dbus/system_bus_socket"]
 
 ENV DBUS_SYSTEM_BUS_ADDRESS  unix:path=/var/run/dbus/system_bus_socket
 USER nobody
-CMD ["/opt/AirVideoServerHD", "--config=/opt/Server.properties"]
+
+# CMD ["/opt/AirVideoServerHD", "--config=/opt/Server.properties"]
+CMD ["/run.sh"]
