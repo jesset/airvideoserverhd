@@ -22,6 +22,7 @@ docker run -d \
 # Auto Discovery
 
 1. On docker host:(CentOS7)
+
 ```
 yum install -y avahi-tools avahi nss-mdns
 systemctl enable avahi-daemon.service
@@ -30,6 +31,7 @@ systemctl start avahi-daemon.service
 ```
 
 2. Mapping dbus socket to container
+
 ```
   -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
 ```
