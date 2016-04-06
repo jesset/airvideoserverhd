@@ -13,9 +13,29 @@ docker run -d \
   -p 45601:45601 \
   -e PASSWORD=abcd1234 \
   --name=AirVideoServerHD \
-  jesset/airvideoserverhd  # pull from docker hub
+  --hostname=MyAirVideoServer \
+  --restart=always \
+  jesset/airvideoserverhd
 
 ```
 
+# Auto Discovery
+
+1. On docker host:(CentOS7)
+```
+yum install -y avahi-tools avahi nss-mdns
+systemctl enable avahi-daemon.service
+systemctl start avahi-daemon.service
+
+```
+
+2. Mapping dbus socket to container
+```
+  -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+```
+
+3. docker restart <container>
+
+
 # Note
-1. Default is single user mode , password `1234`
+1. Single user mode is default, password `1234`
